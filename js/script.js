@@ -5,7 +5,9 @@
 // alert 5 numeri casuali diversi
 var numeriComputer = [];
 
-for (var i = 0; numeriComputer.length < 5; i++) {
+// in questo caso meglio usare while perche con il for comunque la i non la utilizzavamo, quindi il while viene eseguito fin tanto che la condizione è vera, quindi fino 5 volte, mentre in quel for infatti non si  sta nemmeno facendo il controllo su quella i, la ignoramo proprio, per quello puo essere tolta
+// for (var i = 0; numeriComputer.length < 5; i++)
+while (numeriComputer.length < 5) {
 
   var numeriRandom = getRandomNum(100);
 
