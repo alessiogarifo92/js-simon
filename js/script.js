@@ -24,37 +24,40 @@ function getRandomNum(max) {
 
 // dopo 30 secondi 5 prompt con numeri visti precedentemente
 var mioInterval = setInterval(countdown , 1000);
+// array per numeri che andra ad inserire utente
 var numeriUtente = [];
 
-var count = 3;
+// numeri che saranno uguali tra quelli random del computer e quelli che utente indovina
+var numeriMatch = [];
 
+// variabile che usiamo per definire i 30 secondi
+var count = 30;
+
+// funzione per countdown
 function countdown() {
+  // impostiamo if per countdown fino a 1
   if (count > 0) {
     console.log(count);
     count--;
+  // a 0 scatta scritta finito countdown e interrompiamo con clearInterval
   } else {
     console.log('fintio countdown inserire numeri che si ricordano');
     clearInterval(mioInterval);
+
+    // creiamo ciclo per chiedere 5 numeri ad utente che pusheremo nell'array numeriUtente
     for (var i = 0; numeriUtente.length < 5; i++) {
       var numeriInsUtente = parseInt(prompt('Inserisci numero che ricordi tra 1 e 100'));
       numeriUtente.push(numeriInsUtente);
+
+      // poniamo condizione if nei numeriComputer sono inclusi numeri numeriInsUtente allora pushiamo questi numeri in array numeriMatch
+      if (numeriComputer.includes(numeriInsUtente)) {
+        numeriMatch.push(numeriInsUtente);
+        console.log('numeri che matchano ' + numeriMatch);
+      }
     }
-  console.log(numeriUtente);
+  console.log('lista numeri inseriti da utente ' + numeriUtente);
 
-    // for (var i = 0; i < 5; i++) {
-    //   if (numeriComputer.includes(numeriInsUtente)){
-    //     console.log('bravo');
-    //   }
-    // }
-    // });
-
-  function allMatch(number) {
-    return ;
-  }
-  console.log(numeriComputer.every(allMatch));
-
-
+  // software dice quanti e quali numeri azzeccati
+  console.log('I numeri che sono stati indovinati sono ' + numeriMatch.length + '/5' + ', e sono ' + numeriMatch + ';');
   }
 }
-
-// software dice quanti e quali numeri azzeccati
